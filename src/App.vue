@@ -1,26 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app">
+    <FilterPanel />
+    <TechnoList />
+  </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import FilterPanel from "./components/FilterPanel.vue";
+import TechnoList from "./components/TechnoList.vue";
+import { useTechStore } from "./store"; // Импортируем хранилище
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    FilterPanel,
+    TechnoList,
+  },
+  created() {
+    const store = useTechStore(); // Создаем экземпляр хранилища
+    store.fetchTechnologies(); // Вызываем метод загрузки данных
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
