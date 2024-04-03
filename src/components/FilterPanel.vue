@@ -73,9 +73,17 @@ const applySortByPrice = (event) => {
 
 <style scoped>
 .filter-panel {
-  margin-bottom: 20px;
+  background-color: rgb(230, 231, 231);
+  border-radius: 10px;
+  border: 2px solid #524e4e;
+  float: left;
+  width: 200px;
+  padding-left: 15px;
+  margin-right: 20px;
+  margin-left: 15%;
 }
+
 .filter {
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 </style>

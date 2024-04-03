@@ -1,10 +1,12 @@
 <template>
   <div class="techno-list">
-    <TechnoCard
-      v-for="tech in filteredTechnologies"
-      :key="tech.id"
-      :technology="tech"
-    />
+    <transition-group name="fade">
+      <TechnoCard
+        v-for="tech in filteredTechnologies"
+        :key="tech.id"
+        :technology="tech"
+      />
+    </transition-group>
   </div>
 </template>
 
@@ -23,8 +25,17 @@ watchEffect(() => {
 
 <style scoped>
 .techno-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 15%;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
