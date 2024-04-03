@@ -46,9 +46,12 @@ export const useTechStore = defineStore({
           return 1;
         } else {
           // Сортировка по цене
-          return state.sortByPriceAsc
-            ? a.price_per_month.localeCompare(b.price_per_month)
-            : b.price_per_month.localeCompare(a.price_per_month);
+          // return state.sortByPriceAsc
+          //   ? a.price_per_month.localeCompare(b.price_per_month)
+          //   : b.price_per_month.localeCompare(a.price_per_month);
+          const priceA = parseFloat(a.price_per_month.replace("USD", ""));
+          const priceB = parseFloat(b.price_per_month.replace("USD", ""));
+          return state.sortByPriceAsc ? priceA - priceB : priceB - priceA;
         }
       });
 
