@@ -62,7 +62,7 @@ export const useTechStore = defineStore({
   actions: {
     // Загрузка json
     async fetchTechnologies() {
-      const response = await fetch("/test_task.json");
+      const response = await fetch("test_task.json");
       const technologies = await response.json();
       this.setTechnologies(technologies);
     },
